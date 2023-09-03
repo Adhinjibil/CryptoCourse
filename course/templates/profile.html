@@ -1,0 +1,200 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>/* Add CSS styles for the content inside the .box element */
+        .custom-input {
+            background-color: #efefef;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .username {
+            font-weight: bold;
+            color: #007bff; /* Blue color for the username */
+        }
+        
+        .note-input {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ceefff;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        
+        .save-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .save-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .note-list {
+            list-style-type: disc;
+            margin-top: 20px;
+        }
+        
+        /* Additional styles for list items if needed */
+        .note-list li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #141414;
+        }
+        li {
+  list-style-type: none;
+}
+
+        h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.form-label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-button:hover {
+    background-color: #0056b3;
+}
+
+.download-link {
+    display: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block;
+}
+
+.download-link:hover {
+    background-color: #0056b3;
+}
+        </style>
+</head>
+
+<body>
+    <br>
+    <div class="box">
+        <div class="content">
+            <div class="custom-input">
+                <h1>Welcome,You can take notes here</span>!</h1>
+                <h2>Your Notes</h2>
+                <textarea id="note-input" class="note-input" placeholder="Add a note"></textarea>
+                <button id="save-note" class="save-button">Save Note</button>
+                <ul id="note-list" class="note-list"></ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form id="code-form" class="code-form">
+        <label for="code" class="form-label">Enter 4-Digit Code to download your Badge</label>
+        <input type="text" id="code" class="form-input" maxlength="4" required>
+        <button type="submit" class="form-button">Submit</button>
+    </form>
+
+    <!-- Download Link -->
+    <a href="static/badge.png" id="download-link" download style="display: none;">Download Badge</a>
+</body>
+<script>
+    // Function to save a note in local storage
+function saveNote() {
+    const noteInput = document.getElementById('note-input');
+    const noteList = document.getElementById('note-list');
+
+    // Get the user's input from the textarea
+    const noteText = noteInput.value;
+
+    if (noteText.trim() !== '') {
+        // Create a new list item to display the note
+        const listItem = document.createElement('li');
+        listItem.textContent = noteText;
+
+        // Append the note to the list
+        noteList.appendChild(listItem);
+
+        // Save the note to local storage
+        localStorage.setItem('userNote', noteText);
+
+        // Clear the textarea
+        noteInput.value = '';
+    }
+}
+
+// Load any previously saved note from local storage
+function loadSavedNote() {
+    const noteInput = document.getElementById('note-input');
+    const savedNote = localStorage.getItem('userNote');
+
+    if (savedNote) {
+        noteInput.value = savedNote;
+    }
+}
+
+// Attach the saveNote function to the "Save Note" button
+document.getElementById('save-note').addEventListener('click', saveNote);
+
+// Load any previously saved note when the page loads
+loadSavedNote();
+const codeForm = document.getElementById('code-form');
+        const codeInput = document.getElementById('code');
+        const downloadLink = document.getElementById('download-link');
+        
+        codeForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // Validate the entered code
+            const enteredCode = codeInput.value;
+            const correctCode = '8432'; // Replace with your correct code
+            
+            if (enteredCode === correctCode) {
+                // Show the download link if the code is correct
+                downloadLink.style.display = 'block';
+            } else {
+                // Display an error message or take appropriate action
+                alert('Incorrect code. Please try again.');
+            }
+        });
+
+</script>
+</html>
+
+
+
+{% endblock %}

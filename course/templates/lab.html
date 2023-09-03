@@ -1,0 +1,178 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Exercises</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/static/lesson3.css"> -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    /* margin: 20px; */
+}
+
+h2, h3, p {
+    color: #333;
+}
+
+    .box{
+        width: 600px;
+        height: 400px;
+        padding: 20px;
+        margin: 100px auto; 
+        box-shadow: 0px 0px 10px 2px grey;
+        border: 10px solid red;
+       background-image: url(static/bg.png);
+       background-size: cover;}
+       .box1{
+        width: 600px;
+        height: 400px;
+        padding: 20px;
+        margin: 100px auto; 
+        box-shadow: 0px 0px 10px 2px grey;
+        border: 10px solid red;
+       background-image: url(static/lab2.gif);
+       background-size: cover;}
+
+    .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45%;
+}
+
+.custom-input {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.feedback {
+    color: green;
+    font-weight: bold;
+    display: none;
+}
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100px;
+  visibility: hidden;
+}
+.box-paragraph {
+    color: rgb(19, 19, 23); /* You can adjust the color as desired */
+    background: #e4e4e4;
+    border: 1px solid rgb(0, 0, 0); /* Adding a red border */
+    padding: 10px; /* Adding some padding around the paragraph */
+    box-sizing: border-box; /* Including border and padding in the element's width and height */
+}
+@media screen and (max-width: 768px) {
+    header, .content {
+        padding: 10px;
+    }
+    .box,.box1{
+        width: 400px;
+        height: 300px;
+        padding: 10px;
+
+    }
+    input[type="text"] {
+        width: 250px;
+        padding: 5px;
+    }
+    .custom-input {
+        padding: 5px;
+    }
+    .content {
+    height: 25%;
+    }
+}
+ 
+    </style>
+    
+</head> 
+<body>
+    <div class="box-paragraph">
+    <h2>Lab 1.1: Decryption of given message</h2>
+    <h3 >1)A hacker sends a message to a police officer in an encrypted format. The police officer asks you to decrypt the message.
+        <li>please note that the cipher text is given below image</li>
+        <li>If you write correct answer it automatically shows success</li>
+        <li>Write all letters in lowercase</li>
+    </h3>
+    <div class="box">
+        <div class="content">
+            <div class="custom-input">
+                <input type="text" id="password-input" placeholder="Enter Plain text to help police">
+                <div class="feedback" id="feedback"></div>
+                
+            </div>
+
+        </div>
+    
+    </div>
+</div>
+<br>
+<div  class="box-paragraph">
+    <h2>Lab 1.2: Decryption</h2>
+    <h3>2)So the police man want to know his location.The Hacker send his location to his friend.The police man knows that the hacker lives in china.
+    There are more number of cipher text transmiting over internet.can you find that place which is located in china?
+    </h3>
+    <div class="box1">
+        <div class="content">
+            <div class="custom-input">
+                <input type="text" id="password-input1" placeholder="Enter Plain text to help police">
+                <div class="feedback" id="feedback1"></div>
+            </div>
+        </div>
+        <img src="mail.gif" alt="">
+    </div>
+</div>
+    <h2>Lab 2 : write a program To encrypt the text using transposition technique</h2>
+    <br>
+    <br>
+
+
+
+<script>
+    const passwordInput = document.getElementById('password-input');
+    const feedback = document.getElementById('feedback');
+
+passwordInput.addEventListener('input', function () {
+    if (passwordInput.value === 'hacked your mobile') {
+        feedback.style.display = 'block';
+        feedback.textContent = 'Success!';
+        feedback.style.color = 'green';
+    } else {
+        feedback.style.display = 'none';
+    }
+});
+const passwordInput1 = document.getElementById('password-input1');
+    const feedback1 = document.getElementById('feedback1');
+    passwordInput1.addEventListener('input', function () {
+    if (passwordInput1.value === 'Jiangsu') {
+        feedback1.style.display = 'block';
+        feedback1.textContent = 'Success!.';
+        feedback1.style.color = 'green';
+    } else {
+        feedback1.style.display = 'none';
+    }
+});
+
+
+</script>
+</body>
+</html>
+
+{% endblock %}

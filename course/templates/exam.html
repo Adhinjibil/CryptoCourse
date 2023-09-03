@@ -1,0 +1,195 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Basics Quiz</title>
+    <style>
+        .exam {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .scenario {
+            color: #007ce8;
+            margin-bottom: 20px;
+            /* font-style: italic; */
+            max-width: 600px;
+            /* text-align: center; */
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="exam">
+    <h1>Final Exam</h1>
+
+
+      <form id="quiz-form">
+        <ol>
+            <h3>Scenario: Secure Communication between Alex and Priya</h3>
+            <p>Alex and Priya work for the same multinational company. Despite being located in different countries (India and Canada), they frequently need to exchange sensitive work-related information. Due to the cross-border communication, they prioritize the confidentiality and integrity of their messages. To address these concerns, Alex and Priya have chosen to employ encryption techniques to secure their communication channels. They are considering both symmetric and asymmetric encryption methods to achieve their goal. Now, they are in the process of understanding the fundamentals of these encryption techniques to ensure the safety of their exchanged information.</p>
+            <li>
+                <p>1. What is the key difference between symmetric and asymmetric encryption?</p>
+                <label><input type="radio" name="q1" value="a"> a) Symmetric encryption uses a single key, while asymmetric encryption uses a key pair.</label><br>
+                <label><input type="radio" name="q1" value="b"> b) Symmetric encryption is slower than asymmetric encryption.</label><br>
+                <label><input type="radio" name="q1" value="c"> c) Asymmetric encryption requires a shared secret key.</label><br>
+                <label><input type="radio" name="q1" value="d"> d) Asymmetric encryption uses the same key for both encryption and decryption.</label><br>
+            </li>
+            <li>
+                <p>2. Alex wants to send an encrypted message to Priya. Which encryption method should he use if he's concerned about the performance of encryption and decryption for large messages?</p>
+                <label><input type="radio" name="q2" value="a"> a) Symmetric encryption</label><br>
+                <label><input type="radio" name="q2" value="b"> b) Asymmetric encryption</label><br>
+                <label><input type="radio" name="q2" value="c"> c) Hashing</label><br>
+                <label><input type="radio" name="q2" value="d"> d) Obfuscation</label><br>
+            </li>
+            <li>
+                <p>3. Which encryption method is suitable for securely exchanging encryption keys over an insecure channel?</p>
+                <label><input type="radio" name="q3" value="a"> a) Symmetric encryption</label><br>
+                <label><input type="radio" name="q3" value="b"> b) Asymmetric encryption</label><br>
+                <label><input type="radio" name="q3" value="c"> c) Hashing</label><br>
+                <label><input type="radio" name="q3" value="d"> d) Steganography</label><br>
+            </li>
+            <li>
+                <p>4. If Alex wants to send an encrypted message to Priya using asymmetric encryption, which key should he use for encryption?</p>
+                <label><input type="radio" name="q4" value="a"> a) Public key</label><br>
+                <label><input type="radio" name="q4" value="b"> b) Private key</label><br>
+                <label><input type="radio" name="q4" value="c"> c) Shared key</label><br>
+                <label><input type="radio" name="q4" value="d"> d) Session key</label><br>
+            </li>
+            <li>
+                <p>5. Priya receives an encrypted message from Alex. Which key should Priya use to decrypt the message?</p>
+                <label><input type="radio" name="q5" value="a"> a) Public key</label><br>
+                <label><input type="radio" name="q5" value="b"> b) Private key</label><br>
+                <label><input type="radio" name="q5" value="c"> c) Shared key</label><br>
+                <label><input type="radio" name="q5" value="d"> d) Session key</label><br>
+            </li>
+            <li>
+                <p>6. Alex and Priya want to ensure that their communication remains confidential and tamper-proof. Which encryption method should they use?</p>
+                <label><input type="radio" name="q6" value="a"> a) Symmetric encryption</label><br>
+                <label><input type="radio" name="q6" value="b"> b) Asymmetric encryption</label><br>
+                <label><input type="radio" name="q6" value="c"> c) Hashing</label><br>
+                <label><input type="radio" name="q6" value="d"> d) Compression</label><br>
+            </li>
+            <li>
+                <p>7. Which encryption method is more suitable for encrypting small pieces of data like passwords or credit card numbers?</p>
+                <label><input type="radio" name="q7" value="a"> a) Symmetric encryption</label><br>
+                <label><input type="radio" name="q7" value="b"> b) Asymmetric encryption</label><br>
+                <label><input type="radio" name="q7" value="c"> c) Hashing</label><br>
+                <label><input type="radio" name="q7" value="d"> d) Transposition</label><br>
+            </li>
+            <li>
+                <p>8. What is the main advantage of asymmetric encryption over symmetric encryption?</p>
+                <label><input type="radio" name="q8" value="a"> a) Faster encryption and decryption</label><br>
+                <label><input type="radio" name="q8" value="b"> b) Simplicity of key management</label><br>
+                <label><input type="radio" name="q8" value="c"> c) Ability to securely exchange keys</label><br>
+                <label><input type="radio" name="q8" value="d"> d) Stronger encryption algorithms</label><br>
+            </li>
+            <li>
+                <p>9. Which encryption method involves using a pair of keys, one for encryption and another for decryption?</p>
+                <label><input type="radio" name="q9" value="a"> a) Symmetric encryption</label><br>
+                <label><input type="radio" name="q9" value="b"> b) Asymmetric encryption</label><br>
+                <label><input type="radio" name="q9" value="c"> c) Hashing</label><br>
+                <label><input type="radio" name="q9" value="d"> d) Rotational encryption</label><br>
+            </li>
+            <li>
+                <p>10. Alex and Priya decide to use symmetric encryption. What is the primary challenge they need to address?</p>
+                <label><input type="radio" name="q10" value="a"> a) Slow encryption and decryption</label><br>
+                <label><input type="radio" name="q10" value="b"> b) Key exchange</label><br>
+                <label><input type="radio" name="q10" value="c"> c) Need for a pair of keys</label><br>
+                <label><input type="radio" name="q10" value="d"> d) Complex algorithms</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit Answers</button>
+    </form>
+</div>
+<script>
+    const correctAnswers = ['a', 'a', 'b', 'a', 'a', 'b', 'a', 'c', 'b', 'b'];
+    const form = document.getElementById('quiz-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const userAnswers = [];
+        for (let i = 1; i <= 10; i++) {
+            const selectedOption = document.querySelector(`input[name=q${i}]:checked`);
+            if (selectedOption) {
+                userAnswers.push(selectedOption.value);
+            }
+        }
+        let score = 0;
+        for (let i = 0; i < userAnswers.length; i++) {
+            if (userAnswers[i] === correctAnswers[i]) {
+                score++;
+            }
+        }
+
+        // Check if the score is greater than or equal to 7
+        if (score >= 7) {
+            // Generate a random 4-digit code (you can use any method you prefer)
+            const downloadCode = '8432';
+            
+            // Show the code to the user and allow them to download
+            alert(`Congratulations! Your score: ${score} / 10\nPlease note this code to download your badge: ${downloadCode}`);
+        } else {
+            alert(`Your score: ${score} / 10`);
+        }
+    });
+</script>
+
+</body>
+</html>
+
+{% endblock %}
